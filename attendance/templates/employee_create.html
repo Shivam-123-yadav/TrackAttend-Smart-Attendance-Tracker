@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="min-h-screen bg-gray-50 py-10 px-4">
+    <div class="max-w-4xl mx-auto">
+
+        <!-- Page Title -->
+        <div class="flex items-center gap-3 mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Add New Employee</h1>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-5 px-8">
+                <h2 class="text-2xl font-bold">Employee Details</h2>
+                <p class="opacity-90 text-sm mt-1">Fill all required information</p>
+            </div>
+
+            <form method="post" enctype="multipart/form-data" class="p-8">
+                {% csrf_token %}
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+
+                    {% for field in form %}
+                    <div class="space-y-2">
+                        <label class="block text-sm font-semibold text-gray-700">
+                            {{ field.label }}
+                            {% if field.field.required %}<span class="text-red-500">*</span>{% endif %}
+                        </label>
+
+                        <div>
+                            {{ field }}
+                        </div>
+
+                        {% if field.help_text %}
+                        <p class="text-xs text-gray-500 mt-1">{{ field.help_text }}</p>
+                        {% endif %}
+
+                        {% for error in field.errors %}
+                        <p class="text-red-600 text-sm font-medium mt-1">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-10 flex justify-end">
+                    <button type="submit"
+                            class="px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-lg rounded-xl shadow-lg hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition duration-200 flex items-center gap-3">
+                        Save Employee
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- Tailwind CDN (Production mein apna build use kar) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Optional: Better input styling -->
+<style>
+    input, select, textarea {
+        @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-4 focus:ring-indigo-200 focus:border-indigo-500 transition;
+    }
+    input[type="file"] {
+        @apply border-dashed border-2 border-gray-300 bg-gray-50 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-indigo-600 file:text-white hover:file:bg-indigo-700;
+    }
+</style>
+
+{% endblock %}

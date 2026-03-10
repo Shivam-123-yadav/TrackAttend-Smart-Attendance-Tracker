@@ -1,0 +1,91 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance System</title>
+<style>
+
+.bg-indigo-600 {
+background-color: rgb(11, 24, 91) !important;
+}
+
+video {
+  background: #dadada !important;
+}
+
+.w-16 {max-width: 90px !important; width: 100% !important;}
+
+.text-xs {
+  font-size: .9rem !important;}
+</style>
+
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: '#0d6efd' }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+
+
+
+
+  
+  <!-- Navbar - Super Mobile Friendly -->
+  <nav class="bg-white/90 backdrop-blur-xl border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+
+        <!-- Logo -->
+   <a href="{% url 'home' %}" class="flex items-center space-x-2 font-bold text-lg sm:text-xl text-primary">
+  <img
+    src="{% static 'images/klickit-logo.webp' %}"
+    alt="KlickIT Logo"
+    class="h-16 w-16 sm:h-18 sm:w-18 object-contain transition-transform duration-200 hover:scale-105"
+  />
+</a>
+
+
+
+        <!-- Buttons - Perfect on mobile -->
+        <div class="flex items-center gap-2 sm:gap-3">
+        
+
+           <!-- HEADER -->
+    <div class="text-center mb-0">
+        <div class="flex justify-center items-center gap-0 flex-wrap p-0">
+            <h3 class="text-2xl font-bold text-gray-800">Smart Attendance</h3>
+        </div>
+    </div>
+
+          
+         
+
+   
+ 
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content - Mobile Optimized -->
+  <!-- <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+    <div class="bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-gray-100 p-5 sm:p-8 md:p-10 
+                transition-all duration-300">
+      {% block content %}{% endblock %}
+    </div>
+  </main> 
+
+</body>
+</html>
