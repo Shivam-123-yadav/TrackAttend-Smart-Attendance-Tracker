@@ -6,8 +6,6 @@ The system supports camera-based check-ins, automated attendance calculations, a
 
 ---
 
-<img width="1920" height="998" alt="image" src="https://github.com/user-attachments/assets/2e83218f-40a9-469f-9c8d-60ce0ad89275" />
-
 ## Key Features
 
 - Face / camera-based check-in & check-out (base64 image upload)
