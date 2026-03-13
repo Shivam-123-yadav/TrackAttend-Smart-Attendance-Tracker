@@ -59,8 +59,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'attendance_system.wsgi.application'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'attendance_db',
+        'USER': 'attendance_user',
+        'PASSWORD': 'strongpassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 AUTH_PASSWORD_VALIDATORS = []
